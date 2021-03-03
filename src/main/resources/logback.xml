@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<conversionRule conversionWord="wEx" converterClass="ch.qos.logback.classic.pattern.ExtendedThrowableProxyConverter" />
+
+	<appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+	  <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+	    <level>TRACE</level>
+	  </filter>	
+	  <encoder>
+	    <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{executionUuid}] [%X{scriptUuid}] ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%t] %-40.40logger{39} : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}
+	    </Pattern>
+	  </encoder>
+	</appender>
+
+	<appender name="fileAppender"
+	  class="ch.qos.logback.core.rolling.RollingFileAppender">
+	  
+	  <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+	    <level>TRACE</level>
+	  </filter>		
+	  
+	  <file>katalon-runner.log</file>
+	    
+	  <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+	    <!-- daily rollover -->
+	    <fileNamePattern>katalon-runner-%d{yyyy-MM-dd}.log
+	    </fileNamePattern>
+	    <!-- keep 90 days' worth of history -->
+	    <maxHistory>90</maxHistory>
+	  </rollingPolicy>
+	  <encoder>
+	    <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{request-uuid}] [%X{consumer-id}] [%X{app-id}] [%X{subject}] ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%t] %-40.40logger{39} : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}
+	    </Pattern>
+	  </encoder>
+	</appender>
+	
+	<root>
+	  <level value="INFO" />
+	  <appender-ref ref="consoleAppender" />
+	  <appender-ref ref="fileAppender" />
+	</root>
+
+
+  <!-- internal APIs -->
+  <logger name="com.kms" level="info" />
+  <logger name="edu.utec" level="info" />
+  <logger name="com.kms.katalon.core" level="OFF"/>
+  <logger name="com.kms.katalon.core.cucumber.keyword.CucumberReporter" level="debug" />
+  <logger name="com.kms.katalon.core.logging.KeywordLogger" level="trace" />
+  <logger name="com.kms.katalon.core.util.KeywordUtil" level="trace" />
+  
+  <!-- test case scripts -->
+  <logger name="testcase" level="info" />
+  
+  <!-- generated CustomKeywords file -->
+  <logger name="CustomKeywords" level="info" />
+  
+   <!-- built-in keywords -->
+  <logger name="com.kms.katalon.core.keyword.builtin.CommentKeyword" level="info" />
+  
+</configuration>

@@ -1,0 +1,9 @@
+/*
+ * name: acme test case
+ * id: 001
+ * disable: true
+ * 
+ * */
+
+import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
+import static

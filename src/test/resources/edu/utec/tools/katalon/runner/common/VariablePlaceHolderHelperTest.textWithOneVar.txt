@@ -1,0 +1,11 @@
+{
+  "browserName": "Chrome",
+  "browserVersion": "latest-beta",
+  "os": "Windows",
+  "os_version": "10",
+  "project": "Paginas_Principales",
+  "browserstack.timezone": "Lima",
+  "name": "www.utec.edu.pe",
+  "resolution": "1366x768",
+  "build": "${uuid}"
+}

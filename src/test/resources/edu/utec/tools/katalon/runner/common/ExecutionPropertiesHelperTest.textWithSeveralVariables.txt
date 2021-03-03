@@ -1,0 +1,23 @@
+{
+  "system": {
+    "Remote": {
+      "remoteWebDriverType": "Selenium",
+      "remoteMobileDriver": "ANDROID_DRIVER",
+      "remoteWebDriverUrl": "http://${BROWSERSTACK_USER}:${BROWSERSTACK_PASSWORD}@hub-cloud.browserstack.com/wd/hub",
+      "browserType": "REMOTE_WEB_DRIVER"
+    }
+  },
+  "preferences": {
+    "Remote": {
+      "browserName": "Chrome",
+      "browserVersion": "latest-beta",
+      "os": "Windows",
+      "os_version": "10",
+      "project": "Paginas_Principales",
+      "browserstack.timezone": "Lima",
+      "name": "www.utec.edu.pe",
+      "resolution": "1366x768",
+      "build": "${uuid}"
+    }
+  }
+}

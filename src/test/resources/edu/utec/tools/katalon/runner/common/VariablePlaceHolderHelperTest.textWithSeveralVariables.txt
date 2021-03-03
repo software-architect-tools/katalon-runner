@@ -1,0 +1,12 @@
+{
+  "browserName": "Chrome",
+  "browserVersion": "latest-beta",
+  "os": "Windows",
+  "remoteWebDriverUrl": "http://${BROWSERSTACK_USER}:${BROWSERSTACK_PASS}@hub-cloud.browserstack.com/wd/hub",
+  "os_version": "10",
+  "project": "Paginas_Principales",
+  "browserstack.timezone": "Lima",
+  "name": "www.utec.edu.pe",
+  "resolution": "1366x768",
+  "build": "${uuid}"
+}

@@ -1,0 +1,795 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.jrichardsz.tools.katalonrunner</groupId>
+	<artifactId>katalon-runner</artifactId>
+	<version>1.0.0</version>
+
+	<parent>
+		<groupId>com.katalon</groupId>
+		<artifactId>com.katalon.platform.parent</artifactId>
+		<version>1.0.16</version>
+	</parent>
+
+	<properties>
+		<katalon.studio.home.path>/home/rleon/Documents/tmp/katalon/Katalon_Studio_Linux_64-7.9.0/</katalon.studio.home.path>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.5.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptors>
+						<descriptor>${project.build.resources[0].directory}/assembly.xml</descriptor>
+					</descriptors>
+					<finalName>${project.artifactId}</finalName>
+					<classifier>jar</classifier>
+					<appendAssemblyId>false</appendAssemblyId>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<mainClass>edu.utec.tools.katalon.runner.launcher.cmd.KatalonRunnerCmdEntrypoint</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+
+	</build>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>com.katalon</groupId>
+			<artifactId>com.katalon.platform</artifactId>
+			<version>1.0.16</version>
+		</dependency>
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon</artifactId> -->
+		<!-- <version>1.0.16</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.activation</artifactId> -->
+		<!-- <version>1.0.16</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.ansiconsole</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.application</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.bouncy-gpg</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.artifact</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.checkpoint</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.codeassist</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.components</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.components.impl</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.decompiler</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.execution</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.explorer</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.export</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.folder</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.global</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.import</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.integration.analytics</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.integration.cucumber</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.integration.git</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.integration.kobiton</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.integration.qtest</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.keyword</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.mobile</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.mobile.objectspy</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.mobile.recorder</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.objectrepository</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.platform.internal</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.preferences</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.project</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.properties</artifactId> -->
+		<!-- <version>1.0.0</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.report</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.resources</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.search</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.testcase</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.testdata</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.testlistener</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.testsuite</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.testsuite.collection</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.util</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.webservice</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.webui</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.webui.objectspy</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.webui.recorder</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.composer.windows</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.console</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.constant</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.controller</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.core</artifactId> -->
+		<!-- <version>1.0.16</version> -->
+		<!-- </dependency> -->
+
+		<dependency>
+			<groupId>katalon</groupId>
+			<artifactId>com.kms.katalon.core_1.0.0.202101180916.jar</artifactId>
+			<version>1.0.0</version>
+			<type>jar</type>
+			<scope>system</scope>
+			<systemPath>${katalon.studio.home.path}/plugins/com.kms.katalon.core_1.0.0.202101180916.jar</systemPath>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.kms</groupId>
+			<artifactId>com.kms.katalon.core.appium</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+			<type>jar</type>
+			<scope>system</scope>
+			<systemPath>${katalon.studio.home.path}/plugins/com.kms.katalon.core.appium_1.0.0.202101180916.jar</systemPath>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.kms</groupId>
+			<artifactId>com.kms.katalon.core.cucumber</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+			<type>jar</type>
+			<scope>system</scope>
+			<systemPath>${katalon.studio.home.path}/plugins/com.kms.katalon.core.cucumber_1.0.0.202101180916.jar</systemPath>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.kms</groupId>
+			<artifactId>com.kms.katalon.core.mobile</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+			<type>jar</type>
+			<scope>system</scope>
+			<systemPath>${katalon.studio.home.path}/plugins/com.kms.katalon.core.mobile_1.0.0.202101180916.jar</systemPath>
+		</dependency>
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.core.testng</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<dependency>
+			<groupId>com.kms</groupId>
+			<artifactId>com.kms.katalon.core.webservice</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+			<type>jar</type>
+			<scope>system</scope>
+			<systemPath>${katalon.studio.home.path}/plugins/com.kms.katalon.core.webservice_1.0.0.202101180916.jar</systemPath>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.kms</groupId>
+			<artifactId>com.kms.katalon.core.webui</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+			<type>jar</type>
+			<scope>system</scope>
+			<systemPath>${katalon.studio.home.path}/plugins/com.kms.katalon.core.webui_1.0.0.202101180916.jar</systemPath>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.kms</groupId>
+			<artifactId>com.kms.katalon.core.windows</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+			<type>jar</type>
+			<scope>system</scope>
+			<systemPath>${katalon.studio.home.path}/plugins/com.kms.katalon.core.windows_1.0.0.202101180916.jar</systemPath>
+		</dependency>
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.custom</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.dal</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.dal.file</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.entity</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.execution</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.execution.mobile</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.execution.webservice</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.execution.webui</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.execution.windows</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.groovy</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.integration.analytics</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.integration.kobiton</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.integration.qtest</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.logging</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.netlightbody</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.platform.internal</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.poi</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.preferences</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.proxyvole</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.selenium.ide</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<dependency>
+			<groupId>com.kms</groupId>
+			<artifactId>com.kms.katalon.selenium-standalone</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+			<type>jar</type>
+			<scope>system</scope>
+			<systemPath>${katalon.studio.home.path}/plugins/com.kms.katalon.selenium-standalone_1.0.0.202101180916.jar</systemPath>
+		</dependency>
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.support.testing.katserver</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.tracking</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.kms</groupId> -->
+		<!-- <artifactId>com.kms.katalon.tracking.service</artifactId> -->
+		<!-- <version>1.0.0-SNAPSHOT</version> -->
+		<!-- </dependency> -->
+
+
+		<dependency>
+			<groupId>com.kms</groupId>
+			<artifactId>com.kms.katalon.util</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${katalon.studio.home.path}/plugins/com.kms.katalon.util_1.0.0.202101180916.jar</systemPath>
+		</dependency>
+
+		<!-- public jars -->
+		<dependency>
+			<groupId>dom4j</groupId>
+			<artifactId>dom4j</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>3.141.59</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.11</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
+		<dependency>
+			<groupId>io.appium</groupId>
+			<artifactId>java-client</artifactId>
+			<version>7.4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.2.3</version>
+		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>org.apache.logging.log4j</groupId> -->
+		<!-- <artifactId>log4j-api</artifactId> -->
+		<!-- <version>2.7</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.apache.logging.log4j</groupId> -->
+		<!-- <artifactId>log4j-core</artifactId> -->
+		<!-- <version>2.7</version> -->
+		<!-- </dependency> -->
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-server</artifactId>
+			<version>9.4.31.v20200723</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-servlet</artifactId>
+			<version>9.4.31.v20200723</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.websocket</groupId>
+			<artifactId>javax.websocket-api</artifactId>
+			<version>1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty.websocket</groupId>
+			<artifactId>javax-websocket-server-impl</artifactId>
+			<version>9.4.36.v20210114</version>
+		</dependency>
+		<dependency>
+			<groupId>org.greenrobot</groupId>
+			<artifactId>eventbus</artifactId>
+			<version>3.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId>
+			<version>2.4.5</version>
+		</dependency>
+		<dependency>
+			<groupId>net.lightbody.bmp</groupId>
+			<artifactId>browsermob-core</artifactId>
+			<version>2.1.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.jayway.jsonpath</groupId>
+			<artifactId>json-path</artifactId>
+			<version>2.5.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>3.11.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-cli</groupId>
+			<artifactId>commons-cli</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-core-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.platform</groupId>
+			<artifactId>org.eclipse.osgi</artifactId>
+			<version>3.16.100</version>
+		</dependency>
+
+	</dependencies>
+
+</project>
